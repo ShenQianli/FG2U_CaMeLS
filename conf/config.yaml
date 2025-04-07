@@ -1,0 +1,18 @@
+wandb_log: False
+wandb_project: 'CaMeLS'
+wandb_run_name: 'learned_updating'
+
+defaults:
+  - _self_
+  - weight_model: ???
+  - task: ???
+  - dataset: streamingqa
+
+seed: 42
+resume: False
+debug: False
+early_stop: False
+
+base_model: 'distilgpt2'
+tokenizer_name: 'gpt2'
+base_model_state_dict: null

@@ -1,0 +1,68 @@
+# @package _global_
+grad_checkpointing: False
+
+notes: ''
+wandb_run_name: ${task}_${dataset}_model:${model_type}-base:${base_model}_ckl:${c_kl}_cnorm:${c_norm}_${notes}_${uuid:}
+log_dir: './'
+
+val: true
+task: 'train'
+val_em: True
+n_epochs: 50
+val_steps: 5
+save_steps: False
+outer_lr: .0000025
+
+reduce_lr_on_plateau: False
+sample_weights: True
+sample_steps: ${val_steps}
+
+seed: 42
+update_batch_size: 24
+sequential_update: True #when true, the inner model is updated sequentially, otherwise a single batch update is performed
+grad_acc_steps: 32
+reset_base_freq: 48
+forward_mode: True
+num_vs: 8
+
+
+bm_learned_layers: -1
+loc_batch_size: 1
+qa_loc: False
+web_text_loc: True
+#edit this to point to the csv files containing the web text data splits
+web_text_csv: '/your/path/to/data/OpenWebText/8k.csv'
+web_text_val_csv: '/your/path/to/data/OpenWebText/2k.csv'
+c_kl: .1
+
+#earlier experiments included a norm penality on learned importance weights, but this is no longer used (c_norm: 0)
+c_norm: 0
+norm: 2
+norm_from_one: True
+
+
+log_stepwise_metrics: False
+grad_clip_thresh: 1e9 
+
+inner_lr: .0005
+
+load_checkpoint_path: null
+
+# distilgpt2
+#load_checkpoint_path: '/disk3/Xiang/CaMeLS/outputs/train/streamingqa/2024-04-06__695704/checkpoints/best_val_loss-0-2800.pt'
+#load_checkpoint_path: '/disk3/Xiang/CaMeLS/outputs/train/squad/2024-04-23__92641/checkpoints/best_val_loss-1-5600.pt'
+
+# gpt2
+#load_checkpoint_path: '/disk3/Xiang/CaMeLS/outputs/train/streamingqa/2024-05-06__341107/checkpoints/best_val_loss-9-1200.pt'
+#load_checkpoint_path: '/disk3/Xiang/CaMeLS/outputs/train/squad/2024-05-06__312362/checkpoints/best_val_loss-1-5600.pt'
+#load_checkpoint_path: '/home/dltp_xiang/dltp_xiang/CaMeLS_forward/outputs/train/streamingqa/2024-05-08__187044/checkpoints/best_val_loss-9-0.pt'
+#load_checkpoint_path: '/home/dltp_xiang/dltp_xiang/CaMeLS_forward/outputs/train/squad/2024-05-13__37091/checkpoints/best_val_loss-0-160.pt'
+
+hydra:
+  job:
+    chdir: true
+  run:
+    dir: outputs/${task}/${dataset}/${now:%Y-%m-%d}_${notes}_${uuid:}
+  sweep:
+    dir: outputs/${task}/${dataset}/${now:%Y-%m-%d}_${notes}_${uuid:}
+    subdir: ${hydra.job.num}

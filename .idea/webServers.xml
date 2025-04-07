@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a60a62a4-6c41-47ba-8a85-d9fd3de65172" name="dltp_qianli">
+        <fileTransfer accessType="SFTP" host="dgx.d2.comp.nus.edu.sg" port="22" sshConfigId="ee55a023-ee6d-4a18-bc7d-82a2b2d40436" sshConfig="qianli@dgx.d2.comp.nus.edu.sg:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

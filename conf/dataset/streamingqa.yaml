@@ -1,0 +1,10 @@
+# @package _global_
+dataset: streamingqa
+
+#update these paths to point to the data location on your local machine
+data_dir: 'data/StreamingQA'
+train_path: '${data_dir}/train.csv'
+val_path: '${data_dir}/val.csv'
+test_path: '${data_dir}/test.csv'
+lt_train_path: '${data_dir}/qa_train.csv'
+lt_val_path: '${data_dir}/qa_val.csv'

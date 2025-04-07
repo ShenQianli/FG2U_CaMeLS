@@ -1,0 +1,12 @@
+transformers==4.27.0
+wandb==0.12.21
+torch==2.0.1
+ipykernel==6.15.1
+hydra-core==1.2.0
+higher==0.2.1
+pandas==1.4.3
+datasets==2.14.6
+spacy==3.5.2
+Pillow==9.2.0
+matplotlib==3.5.2
+scikit-learn==1.2.2
