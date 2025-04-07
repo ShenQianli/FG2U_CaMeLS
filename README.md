@@ -1,3 +1,51 @@
+# (FG)2U implementation for CaMeLS
+
+This is part of the official code repo for Memory-Efficient Gradient Unrolling for Large-Scale Bi-level Optimization (NeurIPS24).
+
+ArXiv: https://arxiv.org/abs/2406.14095  
+Please feel free to shoot an email to shenqianli@u.nus.edu for any questions.
+
+The repo is built on top of the original CaMeLS repo https://github.com/nathanhu0/CaMeLS.
+
+### Usage
+
+The usage is almost the same as the original CaMeLS repo.
+Please follow the step-by-step instructions in the original README https://github.com/nathanhu0/CaMeLS/blob/main/README.md.
+
+The only difference is that ```forward_mode``` option is set to be ```True``` in ```conf/task/train.yaml```.   
+The core implementation can be found in ```weight_model.py``` starting from line 125.
+
+### Citation
+
+If you use this code or find our work helpful, please consider citing:
+
+```
+@article{shen2024memory,
+  title={Memory-Efficient Gradient Unrolling for Large-Scale Bi-level Optimization},
+  author={Shen, Qianli and Wang, Yezhen and Yang, Zhouhao and Li, Xiang and Wang, Haonan and Zhang, Yang and Scarlett, Jonathan and Zhu, Zhanxing and Kawaguchi, Kenji},
+  journal={arXiv preprint arXiv:2406.14095},
+  year={2024}
+}
+```
+
+To cite CaMeLS:
+
+```
+@misc{hu2023metalearning,
+      title={Meta-Learning Online Adaptation of Language Models}, 
+      author={Nathan Hu and Eric Mitchell and Christopher D. Manning and Chelsea Finn},
+      year={2023},
+      eprint={2305.15076},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
+
+
+
+-----------------------------------------------------------
+(The original README of CaMeLS is below.)
+
 # CaMeLS: Context-aware Meta-learned Loss Scaling
 
 ## What is this repo?
